@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "408310074683",
+    "project_id": "interconsulta-b9c16",
+    "storage_bucket": "interconsulta-b9c16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408310074683:android:1f4c8e5fdc1bffa7fffb1e",
+        "android_client_info": {
+          "package_name": "com.gsoft.debe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408310074683-n17jo6b89pkpee0t556aouspa6s50t7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gsoft.debe",
+            "certificate_hash": "4f9ef22b6b1779c5df1ecc77dc34dc05557b6b69"
+          }
+        },
+        {
+          "client_id": "408310074683-91frf1q03jib6cq4qd37dv42k7htcbjj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwBXnLS5yVHwmvsXw4w1jrE1wAbrs6DTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408310074683-91frf1q03jib6cq4qd37dv42k7htcbjj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
