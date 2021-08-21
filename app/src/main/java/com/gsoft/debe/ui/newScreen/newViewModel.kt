@@ -42,16 +42,11 @@ class newViewModel @Inject constructor(
         repo.delete(paciente)
     }
 
-    fun fetchPaciente (dni:String) = liveData(Dispatchers.IO){
-        cargando.value = true
-        error.value = false
+    fun fetchPaciente(dni:String) = liveData(Dispatchers.IO){
+        emit(Resultado.Loading())
         try{
             emit(dni?.let { repo.getPaciente(it) })
-            cargando.value = false
-            error.value = false
         }catch (e:Exception){
-            cargando.value = false
-            error.value = true
             emit(Resultado.Failure(e))
         }
     }

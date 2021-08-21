@@ -13,12 +13,12 @@ class PacienteRepositoryImpl (
     override fun insert(paciente: Paciente) {
         val db = firestore
         val pacienteFirestore : MutableMap<String, Any> = mutableMapOf()
-        val pacienteID = paciente.dni.toString()
-        pacienteFirestore["id"] = pacienteID
+        val pacienteID = paciente.dni
+        pacienteFirestore["id"] = pacienteID!!
         pacienteFirestore["dni"] = pacienteID
-        pacienteFirestore["nombre"] = paciente.nombre
-        pacienteFirestore["items"] = paciente.items.toString()
-
+        pacienteFirestore["nombre"] = paciente.nombre!!
+        pacienteFirestore["items"] = paciente.items as List<String>
+        Log.d("REPOCREADO", " llega????? ${paciente.nombre} ${paciente.items}")
         db.collection("pacientes").document(pacienteID).set(pacienteFirestore)
             .addOnSuccessListener {
                 Log.d("REPOCREADO", " REPO Paciente Creado ${paciente.nombre} ${paciente.items}")
@@ -29,12 +29,13 @@ class PacienteRepositoryImpl (
     }
 
     override fun update(paciente: Paciente) {
-        TODO("Not yet implemented")
+        delete(paciente)
+        insert(paciente)
     }
 
     override fun delete(paciente: Paciente) {
         val db = firestore
-        db.collection("pacientes").document(paciente.id)
+        db.collection("pacientes").document(paciente.id!!)
             .delete()
             .addOnSuccessListener {
                 Log.d("REPOELIMINAR", "Paciente rajado")
@@ -46,15 +47,14 @@ class PacienteRepositoryImpl (
 
 
     override suspend fun getPaciente(dni: String): Resultado<Paciente?> {
-        var founded  = Paciente("1" ,dni="1", "asd", items = null)
-        val querySnapshot = firestore.collection("pacientes").get().await()
-        for (paciente in querySnapshot.documents){
-            paciente.toObject(Paciente::class.java)?.let{
-                if (it.dni == dni){
-                   founded = it
-                }
-            }
-        }
-       return Resultado.Success(founded)
+        var paciente : Paciente = Paciente(id= "", dni="", nombre = "", items = null)
+        var lista : MutableList<String> = mutableListOf()
+        val querySnapshot = firestore.collection("pacientes").document(dni).get().await()
+
+        val documento = querySnapshot.toObject<Paciente>(Paciente::class.java)
+
+
+
+       return Resultado.Success(documento)
     }
 }

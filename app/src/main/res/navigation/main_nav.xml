@@ -21,10 +21,18 @@
         android:id="@+id/newFragment"
         android:name="com.gsoft.debe.ui.newScreen.NewFragment"
         android:label="fragment_new"
-        tools:layout="@layout/fragment_new" />
+        tools:layout="@layout/fragment_new" >
+        <action
+            android:id="@+id/action_newFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.gsoft.debe.ui.searchScreen.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
