@@ -35,21 +35,17 @@ class NewFragment : Fragment(R.layout.fragment_new),listAdapter.OnItemClickListe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewBinding.bind(view)
-        binding.rvDebeNuevo.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvDebeNuevo.adapter = newAdapter
-        newAdapter.setListaDeItems(listadeItems)
+
 
         setView()
     }
 
     private fun setView() {
 
-        binding.bAgregarItem.setOnClickListener {
-            showdialog()
-        }
 
-        binding.bAgregarPaciente.setOnClickListener {
-            if (binding.etDni.text.isNullOrEmpty() || binding.etNombre.text.isNullOrEmpty()){
+
+        binding.btnAddPatient.setOnClickListener {
+/*            if (binding.etDni.text.isNullOrEmpty() || binding.etNombre.text.isNullOrEmpty()){
                 Snackbar.make(it,"Nombre y Dni no pueden estar vacios",Snackbar.LENGTH_LONG).show()
             }else{
                 val paciente = Paciente(
@@ -66,7 +62,7 @@ class NewFragment : Fragment(R.layout.fragment_new),listAdapter.OnItemClickListe
                     Snackbar.make(it,"Hubo un error",Snackbar.LENGTH_LONG).show()
                 }
 
-            }
+            }*/
         }
     }
 

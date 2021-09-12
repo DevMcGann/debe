@@ -25,6 +25,15 @@
         <action
             android:id="@+id/action_newFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_newFragment_to_studiesFragment"
+            app:destination="@id/studiesFragment" />
+        <action
+            android:id="@+id/action_newFragment_to_laboratoryFragment"
+            app:destination="@id/laboratoryFragment" />
+        <action
+            android:id="@+id/action_newFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -34,5 +43,29 @@
         <action
             android:id="@+id/action_searchFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_studiesFragment"
+            app:destination="@id/studiesFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_laboratoryFragment"
+            app:destination="@id/laboratoryFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/studiesFragment"
+        android:name="com.gsoft.debe.ui.studiesScreen.studiesFragment"
+        android:label="fragment_studies"
+        tools:layout="@layout/fragment_studies" />
+    <fragment
+        android:id="@+id/laboratoryFragment"
+        android:name="com.gsoft.debe.ui.laboratoryScreen.laboratoryFragment"
+        android:label="fragment_laboratory"
+        tools:layout="@layout/fragment_laboratory" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.gsoft.debe.ui.noteScreen.noteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" />
 </navigation>

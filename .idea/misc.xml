@@ -6,10 +6,14 @@
         <entry key="..\:/Users/devmc/AndroidStudioProjects/debe/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/devmc/Desktop/debe/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/drawable/roundedbutton.xml" value="0.21846153846153846" />
+        <entry key="app/src/main/res/drawable/roundedtext.xml" value="0.21846153846153846" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20256410256410257" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20256410256410257" />
+        <entry key="app/src/main/res/layout/fragment_laboratory.xml" value="0.20256410256410257" />
         <entry key="app/src/main/res/layout/fragment_new.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/layout/fragment_note.xml" value="0.20256410256410257" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.29237947122861585" />
+        <entry key="app/src/main/res/layout/fragment_studies.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/item_row.xml" value="0.20572916666666666" />
       </map>
     </option>

@@ -10,24 +10,38 @@
     android:backgroundTintMode="src_in"
     tools:context=".ui.homeScreen.HomeFragment" >
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="100"
+        android:scaleType="centerCrop"
+        android:src="@drawable/interconsulta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_new"
         android:layout_width="253dp"
         android:layout_height="71dp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="#8AFB07"
+        android:backgroundTintMode="src_in"
         android:text="Nuevo Paciente"
         android:textSize="20sp"
-        android:background="@drawable/roundedbutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/btn_search"
         android:layout_width="253dp"
         android:layout_height="71dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="104dp"
         android:background="@drawable/roundedbutton"
         android:text="Buscar Paciente"
         android:textSize="20sp"
