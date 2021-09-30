@@ -57,15 +57,41 @@
         android:id="@+id/studiesFragment"
         android:name="com.gsoft.debe.ui.studiesScreen.studiesFragment"
         android:label="fragment_studies"
-        tools:layout="@layout/fragment_studies" />
+        tools:layout="@layout/fragment_studies" >
+        <action
+            android:id="@+id/action_studiesFragment_to_pickImagenes"
+            app:destination="@id/pickImagenes" />
+    </fragment>
     <fragment
         android:id="@+id/laboratoryFragment"
         android:name="com.gsoft.debe.ui.laboratoryScreen.laboratoryFragment"
         android:label="fragment_laboratory"
-        tools:layout="@layout/fragment_laboratory" />
+        tools:layout="@layout/fragment_laboratory" >
+        <action
+            android:id="@+id/action_laboratoryFragment_to_pickImagenes"
+            app:destination="@id/pickImagenes" />
+    </fragment>
     <fragment
         android:id="@+id/noteFragment"
         android:name="com.gsoft.debe.ui.noteScreen.noteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" />
+    <fragment
+        android:id="@+id/pickImagenes"
+        android:name="com.gsoft.debe.ui.pickImagenes.pickImagenes"
+        android:label="fragment_pick_imagenes"
+        tools:layout="@layout/fragment_pick_imagenes" >
+        <action
+            android:id="@+id/action_pickImagenes_to_studiesFragment"
+            app:destination="@id/studiesFragment" />
+        <action
+            android:id="@+id/action_pickImagenes_to_studiesFragment2"
+            app:destination="@id/studiesFragment" />
+        <action
+            android:id="@+id/action_pickImagenes_to_laboratoryFragment"
+            app:destination="@id/laboratoryFragment" />
+        <action
+            android:id="@+id/action_pickImagenes_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
 </navigation>

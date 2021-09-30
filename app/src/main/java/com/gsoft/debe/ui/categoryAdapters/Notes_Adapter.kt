@@ -1,19 +1,20 @@
-package com.gsoft.debe.ui.newScreen
+package com.gsoft.debe.ui.categoryAdapters
 
 import android.content.Context
+import android.net.Uri
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.gsoft.debe.databinding.ImageItemRowBinding
+import com.gsoft.debe.databinding.NoteItemRowBinding
 import com.gsoft.debe.utils.BaseViewHolder
 
-class listAdapter  (
-    private val context: Context,
-    private val itemClickListener: OnItemClickListener)
-    : RecyclerView.Adapter<BaseViewHolder<*>>() {
+class Notes_Adapter(private val context: Context,
+                    private val itemClickListener: Notes_Adapter.OnItemClickListener
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    private var itemList : MutableList<String> = mutableListOf()
+    private var itemList: MutableList<String> = mutableListOf()
 
     interface OnItemClickListener {
         fun onItemClick(item: String, position: Int)
@@ -24,19 +25,21 @@ class listAdapter  (
         notifyDataSetChanged()
     }
 
-    fun deleteItem(index: Int){
+    fun deleteItem(index: Int) {
         itemList.removeAt(index)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBInding = ImageItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val NoteBinding =
+            NoteItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        val holder = ItemViewHolder(itemBInding)
+        val holder = ItemViewHolder(NoteBinding)
 
-        itemBInding.root.setOnClickListener {
+        NoteBinding.root.setOnClickListener {
             val position =
-                holder.adapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
+                holder.adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
             itemClickListener.onItemClick(itemList[position], position)
         }
 
@@ -49,16 +52,16 @@ class listAdapter  (
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
-            is ItemViewHolder -> holder.bind(itemList[position])
+            is Notes_Adapter.ItemViewHolder -> holder.bind(itemList[position])
         }
     }
 
-
-    private inner class ItemViewHolder(val binding: ImageItemRowBinding) :
+    private inner class ItemViewHolder(val binding: NoteItemRowBinding) :
         BaseViewHolder<String>(binding.root) {
         override fun bind(item: String) = with(binding) {
-            //tItemRow.text = item
-
+            etNote.text = item
         }
     }
+
+
 }

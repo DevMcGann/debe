@@ -1,14 +1,14 @@
-package com.gsoft.debe.ui.newScreen
+package com.gsoft.debe.ui.categoryAdapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.NO_POSITION
+import com.bumptech.glide.Glide
 import com.gsoft.debe.databinding.ImageItemRowBinding
 import com.gsoft.debe.utils.BaseViewHolder
 
-class listAdapter  (
+class URL_Adapter (
     private val context: Context,
     private val itemClickListener: OnItemClickListener)
     : RecyclerView.Adapter<BaseViewHolder<*>>() {
@@ -36,7 +36,7 @@ class listAdapter  (
 
         itemBInding.root.setOnClickListener {
             val position =
-                holder.adapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
+                holder.adapterPosition.takeIf { it != RecyclerView.NO_POSITION } ?: return@setOnClickListener
             itemClickListener.onItemClick(itemList[position], position)
         }
 
@@ -56,8 +56,9 @@ class listAdapter  (
 
     private inner class ItemViewHolder(val binding: ImageItemRowBinding) :
         BaseViewHolder<String>(binding.root) {
-        override fun bind(item: String) = with(binding) {
-            //tItemRow.text = item
+        override fun bind(item: String): Unit = with(binding) {
+            Glide.with(context).load(item)
+                .centerCrop().into(imgItem)
 
         }
     }

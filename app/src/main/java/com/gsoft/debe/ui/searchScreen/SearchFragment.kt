@@ -48,10 +48,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) , listAdapter.OnItemCl
         binding.bAgregarItemSearch.isVisible = false
         binding.bEliminar.isVisible = false
 
-        setView()
+        //setView()
     }
 
-    private fun setView(){
+    /*private fun setView(){
         binding.bBuscarPaciente.setOnClickListener {
             val dni = binding.etBuscar.text
             viewModel.fetchPaciente(dni.toString()).observe(viewLifecycleOwner, Observer { result ->
@@ -133,7 +133,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) , listAdapter.OnItemCl
                 ).show()
             }
         }
-    }
+    }*/
 
     fun showdialog(){
         val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(this.context)

@@ -42,7 +42,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#8AFB07"
         android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.909"
@@ -53,6 +53,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_studies"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="402dp"
         android:layout_height="501dp"
         android:layout_marginStart="8dp"
@@ -63,4 +64,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ProgressBar
+        android:id="@+id/estudiosCircularProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="117dp"
+        android:layout_height="115dp"
+        android:backgroundTint="#84E119"
+        android:progressTint="#6DBD10"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_studies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/rv_studies"
+        app:layout_constraintTop_toTopOf="@+id/rv_studies"
+        app:layout_constraintVertical_bias="0.279" />
+
+    <TextView
+        android:id="@+id/tv_cargandoImagenes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBIENDO IMAGENES"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estudiosCircularProgress"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

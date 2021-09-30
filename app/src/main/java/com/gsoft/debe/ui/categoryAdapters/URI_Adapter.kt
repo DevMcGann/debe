@@ -1,25 +1,25 @@
-package com.gsoft.debe.ui.newScreen
+package com.gsoft.debe.ui.categoryAdapters
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.gsoft.debe.databinding.ImageItemRowBinding
 import com.gsoft.debe.utils.BaseViewHolder
 
-class listAdapter  (
+class URI_Adapter (
     private val context: Context,
     private val itemClickListener: OnItemClickListener)
     : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    private var itemList : MutableList<String> = mutableListOf()
+    private var itemList : MutableList<Uri> = mutableListOf()
 
     interface OnItemClickListener {
-        fun onItemClick(item: String, position: Int)
+        fun onItemClick(item: Uri, position: Int)
     }
 
-    fun setListaDeItems(lista: MutableList<String>) {
+    fun setListaDeItems(lista: MutableList<Uri>) {
         itemList = lista
         notifyDataSetChanged()
     }
@@ -36,7 +36,7 @@ class listAdapter  (
 
         itemBInding.root.setOnClickListener {
             val position =
-                holder.adapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
+                holder.adapterPosition.takeIf { it != RecyclerView.NO_POSITION } ?: return@setOnClickListener
             itemClickListener.onItemClick(itemList[position], position)
         }
 
@@ -55,10 +55,9 @@ class listAdapter  (
 
 
     private inner class ItemViewHolder(val binding: ImageItemRowBinding) :
-        BaseViewHolder<String>(binding.root) {
-        override fun bind(item: String) = with(binding) {
-            //tItemRow.text = item
-
+        BaseViewHolder<Uri>(binding.root) {
+        override fun bind(item: Uri) = with(binding) {
+            imgItem.setImageURI(item)
         }
     }
 }

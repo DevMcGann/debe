@@ -10,11 +10,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20256410256410257" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20256410256410257" />
         <entry key="app/src/main/res/layout/fragment_laboratory.xml" value="0.20256410256410257" />
-        <entry key="app/src/main/res/layout/fragment_new.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/layout/fragment_new.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_note.xml" value="0.20256410256410257" />
+        <entry key="app/src/main/res/layout/fragment_pick_imagenes.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.29237947122861585" />
         <entry key="app/src/main/res/layout/fragment_studies.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/layout/image_item_row.xml" value="0.20572916666666666" />
         <entry key="app/src/main/res/layout/item_row.xml" value="0.20572916666666666" />
+        <entry key="app/src/main/res/layout/note_item_row.xml" value="0.20572916666666666" />
       </map>
     </option>
   </component>

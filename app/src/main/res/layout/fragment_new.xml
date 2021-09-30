@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btn_addPatient"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3380FF"
@@ -42,17 +42,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:hint="Nombre"
                     android:padding="8dp"
-                    app:hintTextColor="@color/white"
-                    app:shapeAppearance="@style/Rounded"
+                    android:textColorHint="#F6F4F4"
                     app:boxStrokeColor="@color/white"
-                    android:hint="Nombre">
+                    app:hintTextColor="@color/white"
+                    app:shapeAppearance="@style/Rounded">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_nombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="22dp"
                         android:hint="Nombre"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="22dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -60,17 +63,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:hint="DNI"
                     android:padding="8dp"
-                    app:hintTextColor="@color/white"
+                    android:textColorHint="#FBFBFB"
                     app:boxStrokeColor="@color/white"
-                    app:shapeAppearance="@style/Rounded"
-                    android:hint="DNI">
+                    app:hintTextColor="@color/white"
+                    app:shapeAppearance="@style/Rounded">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_dni"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="22dp"
                         android:hint="DNI"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="22dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -78,17 +84,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:hint="Cirugía"
                     android:padding="8dp"
+                    android:textColorHint="#FFFFFF"
                     app:boxStrokeColor="@color/white"
                     app:hintTextColor="@color/white"
-                    app:shapeAppearance="@style/Rounded"
-                    android:hint="Cirugía">
+                    app:shapeAppearance="@style/Rounded">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_cirugia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="22dp"
                         android:hint="Cirugía"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="22dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -96,7 +105,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/btn_addPatient"
             android:backgroundTint="#8AFB07"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,6 +200,36 @@
             app:layout_constraintEnd_toEndOf="@+id/imgNotas"
             app:layout_constraintStart_toStartOf="@+id/imgNotas"
             app:layout_constraintTop_toTopOf="@+id/imgNotas" />
+
+        <ProgressBar
+            android:id="@+id/newProgressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="116dp"
+            android:layout_height="131dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/materialCardView"
+            app:layout_constraintVertical_bias="0.607" />
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="180dp"
+            android:layout_height="77dp"
+            android:text="Cargando Imagenes y creando Paciente"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newProgressbar"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

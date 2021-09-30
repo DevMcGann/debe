@@ -49,6 +49,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -56,9 +57,10 @@ dependencies {
     // Lifecycle
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
     implementation "androidx.activity:activity-ktx:$rootProject.ktxActivityVersion"
-    implementation "androidx.fragment:fragment-ktx:$rootProject.ktxFragmentVersion"
+    //implementation "androidx.fragment:fragment-ktx:$rootProject.ktxFragmentVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ktxLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ktxLifecycleVersion"
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.ktxNavigationVersion"
@@ -84,6 +86,13 @@ dependencies {
 
     // Play services coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+
+    //GLIDE
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //carousel
+    implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:1.3.0'
 
 
 
