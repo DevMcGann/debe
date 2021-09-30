@@ -23,24 +23,24 @@ class MainViewModel @Inject constructor(
     var dni : String = ""
     var cirugia : String = ""
     var listaUrisEstudios : MutableList<Uri> = mutableListOf()
-    var listaUrisLaboratorio : MutableList<Uri> = mutableListOf()
+    //var listaUrisLaboratorio : MutableList<Uri> = mutableListOf()
     var estudiosListURL: MutableList<String> = mutableListOf()
-    var laboratorioListURL: MutableList<String> = mutableListOf()
+    //var laboratorioListURL: MutableList<String> = mutableListOf()
     var notasList : MutableList<String> = mutableListOf()
     var categoriaSeleccionada = ""   //estudios o laboratorio
 
 
     var estudiosUploadReady = false
-    var laboratorioUploadReady = false
+   // var laboratorioUploadReady = false
 
     private var _canCreatePatient: MutableLiveData<Event<Boolean>> = MutableLiveData()
     val canCreateNewPatient: LiveData<Event<Boolean>> = _canCreatePatient
 
-    fun checkCanUploadPatient(){
+    /*fun checkCanUploadPatient(){
         if(estudiosUploadReady && laboratorioUploadReady){
             _canCreatePatient.postValue(Event(true))
         }
-    }
+    }*/
 
 
     fun uploadEstudiosToStorageAndGetURL() = liveData(Dispatchers.IO){
@@ -59,21 +59,21 @@ class MainViewModel @Inject constructor(
         return estudiosListURL
     }
 
-    fun uploadLaboratorioToStorageAndGetURL() = liveData(Dispatchers.IO){
+    /*fun uploadLaboratorioToStorageAndGetURL() = liveData(Dispatchers.IO){
         emit(Resultado.Loading())
         try{
             emit(repo.uploadImagesLabAndGetURL(listaUrisLaboratorio))
         }catch (e:Exception){
             emit(Resultado.Failure(e))
         }
-    }
+    }*/
 
-    fun setImagenesLaboratorioURL(urlList:MutableList<String>){
+    /*fun setImagenesLaboratorioURL(urlList:MutableList<String>){
         laboratorioListURL = urlList
     }
     fun getImagenesLaboratorio() : MutableList<String>{
         return laboratorioListURL
-    }
+    }*/
 
     fun removerNota(nota:String){
         notasList.remove(nota)
@@ -86,7 +86,7 @@ class MainViewModel @Inject constructor(
             nombre = nombre,
             cirugia = cirugia,
            estudios = estudiosListURL,
-            laboratorio = laboratorioListURL,
+            //laboratorio = laboratorioListURL,
             notas = notasList
         )
         Log.d("AGREGAR", "agregar paciente llamado")

@@ -22,7 +22,7 @@ class PacienteRepositoryImpl (
         pacienteFirestore["nombre"] = paciente.nombre
         pacienteFirestore["cirugia"] = paciente.cirugia
         pacienteFirestore["estudios"] = paciente.estudios as List<String>
-        pacienteFirestore["laboratorio"] = paciente.laboratorio as List<String>
+        //pacienteFirestore["laboratorio"] = paciente.laboratorio as List<String>
         pacienteFirestore["notas"] = paciente.notas as List<String>
         Log.d("REPOCREADO", " paciente ${paciente.toString()} ")
 
@@ -74,6 +74,7 @@ class PacienteRepositoryImpl (
         return Resultado.Success(imgListUrl)
     }
 
+/*
     override suspend fun uploadImagesLabAndGetURL(imgList: MutableList<Uri>): Resultado<MutableList<String>> {
         var imgListUrl : MutableList<String> = mutableListOf()
         for (imagen in imgList) {
@@ -87,6 +88,7 @@ class PacienteRepositoryImpl (
         }
         return Resultado.Success(imgListUrl)
     }
+*/
 
 
 }

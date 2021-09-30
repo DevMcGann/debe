@@ -43,7 +43,8 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
                 Snackbar.make(it, "Los campos no pueden estar vacios", Snackbar.LENGTH_LONG).show()
             } else {
                 if (viewModel.listaUrisEstudios.isNullOrEmpty()){
-                   viewModel.estudiosUploadReady = true
+                  // viewModel.estudiosUploadReady = true
+                    finalizarNuevoPaciente()
                 }else{
                     viewModel.uploadEstudiosToStorageAndGetURL().observe(viewLifecycleOwner, Observer { result ->
                        when (result){
@@ -58,8 +59,9 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
                                if(viewModel.getImagenesEstudios().isNotEmpty()){
                                    Log.d("CREAR", "getImagenesEstudios es no empty ${viewModel.getImagenesEstudios()}")
                                    isLoading(false)
-                                   viewModel.estudiosUploadReady = true
-                                   viewModel.checkCanUploadPatient()
+                                   finalizarNuevoPaciente()
+                                   //viewModel.estudiosUploadReady = true
+                                   //viewModel.checkCanUploadPatient()
                                }
                            }
                            is Resultado.Failure -> {
@@ -70,7 +72,7 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
                        }
                     })
                 }//subir estudios
-                if (viewModel.listaUrisLaboratorio.isNullOrEmpty()){
+                /*if (viewModel.listaUrisLaboratorio.isNullOrEmpty()){
                     viewModel.laboratorioUploadReady = true
                 }else{
                     viewModel.uploadLaboratorioToStorageAndGetURL().observe(viewLifecycleOwner, Observer { result ->
@@ -97,8 +99,8 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
                             }
                         }
                     })
-                }//subir lab
-                viewModel.canCreateNewPatient.observe(viewLifecycleOwner, {
+                }//subir lab*/
+                /*viewModel.canCreateNewPatient.observe(viewLifecycleOwner, {
                     it.getContentIfNotHandled()?.let {
                         viewModel.dni = binding.etDni.text.toString()
                         viewModel.nombre=binding.etNombre.text.toString()
@@ -107,7 +109,7 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
                         Toast.makeText(requireContext(), "Paciente creado exitosamente!", Toast.LENGTH_LONG).show()
                         findNavController().navigate(R.id.action_newFragment_to_homeFragment)
                     }
-                })
+                })*/
             }//main if
         }
 
@@ -115,9 +117,9 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
             findNavController().navigate(R.id.action_newFragment_to_studiesFragment)
         }
 
-        binding.imgLaboratorio.setOnClickListener {
+       /* binding.imgLaboratorio.setOnClickListener {
             findNavController().navigate(R.id.action_newFragment_to_laboratoryFragment)
-        }
+        }*/
 
         binding.imgNotas.setOnClickListener {
             findNavController().navigate(R.id.action_newFragment_to_noteFragment)
@@ -130,24 +132,33 @@ class NewFragment : Fragment(R.layout.fragment_new), listAdapter.OnItemClickList
         newAdapter.deleteItem(position)
     }
 
+    private fun finalizarNuevoPaciente(){
+        viewModel.dni = binding.etDni.text.toString()
+        viewModel.nombre=binding.etNombre.text.toString()
+        viewModel.cirugia=binding.etCirugia.text.toString()
+        viewModel.agregarPaciente()
+        Toast.makeText(requireContext(), "Paciente creado exitosamente!", Toast.LENGTH_LONG).show()
+        findNavController().navigate(R.id.action_newFragment_to_homeFragment)
+    }
+
     private fun isLoading(loading:Boolean){
         if(loading){
             binding.tvLoading.isVisible = true
             binding.newProgressbar.isVisible = true
             binding.imgNotas.isVisible = false
-            binding.imgLaboratorio.isVisible = false
+           /* binding.imgLaboratorio.isVisible = false*/
             binding.imgEstudios.isVisible = false
             binding.textView.isVisible = false
-            binding.textView2.isVisible = false
+           /* binding.textView2.isVisible = false*/
             binding.textView3.isVisible= false
         }else{
             binding.tvLoading.isVisible = false
             binding.newProgressbar.isVisible = false
             binding.imgNotas.isVisible = true
-            binding.imgLaboratorio.isVisible = true
+           /* binding.imgLaboratorio.isVisible = true*/
             binding.imgEstudios.isVisible = true
             binding.textView.isVisible = true
-            binding.textView2.isVisible = true
+           /* binding.textView2.isVisible = true*/
             binding.textView3.isVisible= true
         }
     }

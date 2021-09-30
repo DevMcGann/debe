@@ -16,7 +16,7 @@ interface PacienteRepository {
 
     suspend fun uploadImagesAndGetURL(imgList: MutableList<Uri>) : Resultado<MutableList<String>>
 
-    suspend fun uploadImagesLabAndGetURL(imgList: MutableList<Uri>) : Resultado<MutableList<String>>
+   //suspend fun uploadImagesLabAndGetURL(imgList: MutableList<Uri>) : Resultado<MutableList<String>>
 
 
 }

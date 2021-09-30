@@ -6,10 +6,10 @@ data class Paciente (
     val nombre: String,
     val cirugia: String,
     val estudios: MutableList<String>? = null,
-    val laboratorio: MutableList<String>? = null,
+   // val laboratorio: MutableList<String>? = null,
     val notas: MutableList<String>? = null
         )
 {
     constructor() : this("", "","",
-        "", estudios = null, laboratorio = null, notas = null)
+        "", estudios = null, notas = null)
 }
